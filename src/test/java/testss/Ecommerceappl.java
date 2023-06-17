@@ -23,10 +23,11 @@ import pageObjects.ProductCatalog;
 
 public class Ecommerceappl extends TestBase {
 
+	String name="IPHONE 13 PRO";
 	@Test
 	public void demo() throws IOException
 	{
-		String name="IPHONE 13 PRO";
+		
 		//LoginPage l=loginIn();
 		ProductCatalog pp=l.loginApp("rahulshetty@gmail.com", "Iamking@000");
 		Catolog cat=pp.addcart(name);	 
@@ -35,5 +36,12 @@ public class Ecommerceappl extends TestBase {
 		CheckoutPage check=cat.sub();
 		check.selectCountry("ind");
 		check.sub();
+	}
+	
+	@Test(dependsOnMethods="demo")
+	public void ceckorders()
+	{
+		ProductCatalog pp=l.loginApp("rahulshetty@gmail.com", "Iamking@000");
+		Assert.assertTrue(l.clickOrder(name));
 	}
 }

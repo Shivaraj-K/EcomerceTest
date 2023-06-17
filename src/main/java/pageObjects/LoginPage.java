@@ -17,6 +17,7 @@ public class LoginPage extends BaseClass {
 	public ProductCatalog p;
 	public TestBase t;
 	public LoginPage l;
+	public OrderPage o;
 	public LoginPage(WebDriver d)
 	{
 		super(d);
@@ -47,6 +48,13 @@ public class LoginPage extends BaseClass {
 		login.click();
 		 p=new  ProductCatalog(d);
 		return p;
+	}
+	
+	public boolean clickOrder(String name)
+	{
+		order();
+		o=new OrderPage(d);
+		return o.orderProducts(name);
 	}
 	
 }

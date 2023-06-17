@@ -27,6 +27,13 @@ public class BaseClass {
 	@FindBy(css=".ng-tns-c31-1")
 	WebElement in;
 	
+	@FindBy(css="button[routerlink='/dashboard/myorders']")
+	WebElement order;
+	
+	public void order()
+	{
+		order.click();
+	}
 	public void cart()
 	{
 		invis(in);
